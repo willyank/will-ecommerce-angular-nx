@@ -1,27 +1,24 @@
 {
   "version": 1,
   "projects": {
-    "will-app": {
+    "admin": {
       "projectType": "application",
-      "root": "apps/will-app",
-      "sourceRoot": "apps/will-app/src",
+      "root": "apps/admin",
+      "sourceRoot": "apps/admin/src",
       "prefix": "wilyan-company",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/will-app",
-            "index": "apps/will-app/src/index.html",
-            "main": "apps/will-app/src/main.ts",
-            "polyfills": "apps/will-app/src/polyfills.ts",
-            "tsConfig": "apps/will-app/tsconfig.app.json",
+            "outputPath": "dist/apps/admin",
+            "index": "apps/admin/src/index.html",
+            "main": "apps/admin/src/main.ts",
+            "polyfills": "apps/admin/src/polyfills.ts",
+            "tsConfig": "apps/admin/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/will-app/src/favicon.ico",
-              "apps/will-app/src/assets"
-            ],
-            "styles": ["apps/will-app/src/styles.scss"],
+            "assets": ["apps/admin/src/favicon.ico", "apps/admin/src/assets"],
+            "styles": ["apps/admin/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -40,8 +37,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/will-app/src/environments/environment.ts",
-                  "with": "apps/will-app/src/environments/environment.prod.ts"
+                  "replace": "apps/admin/src/environments/environment.ts",
+                  "with": "apps/admin/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -59,12 +56,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4200
+          },
           "configurations": {
             "production": {
-              "browserTarget": "will-app:build:production"
+              "browserTarget": "admin:build:production"
             },
             "development": {
-              "browserTarget": "will-app:build:development"
+              "browserTarget": "admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,43 +72,42 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "will-app:build"
+            "browserTarget": "admin:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/will-app/src/**/*.ts",
-              "apps/will-app/src/**/*.html"
+              "apps/admin/src/**/*.ts",
+              "apps/admin/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/will-app"],
+          "outputs": ["coverage/apps/admin"],
           "options": {
-            "jestConfig": "apps/will-app/jest.config.js",
+            "jestConfig": "apps/admin/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "will-app-e2e": {
-      "root": "apps/will-app-e2e",
-      "sourceRoot": "apps/will-app-e2e/src",
+    "admin-e2e": {
+      "root": "apps/admin-e2e",
+      "sourceRoot": "apps/admin-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/will-app-e2e/cypress.json",
-            "devServerTarget": "will-app:serve:development",
-            "tsConfig": "apps/will-app-e2e/tsconfig.json"
+            "cypressConfig": "apps/admin-e2e/cypress.json",
+            "devServerTarget": "admin:serve:development"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "will-app:serve:production"
+              "devServerTarget": "admin:serve:production"
             }
           }
         },
@@ -116,7 +115,151 @@
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/will-app-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ngstore": {
+      "projectType": "application",
+      "root": "apps/ngstore",
+      "sourceRoot": "apps/ngstore/src",
+      "prefix": "wilyan-company",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/ngstore",
+            "index": "apps/ngstore/src/index.html",
+            "main": "apps/ngstore/src/main.ts",
+            "polyfills": "apps/ngstore/src/polyfills.ts",
+            "tsConfig": "apps/ngstore/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/ngstore/src/favicon.ico",
+              "apps/ngstore/src/assets"
+            ],
+            "styles": ["apps/ngstore/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/ngstore/src/environments/environment.ts",
+                  "with": "apps/ngstore/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "port": 4300
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngstore:build:production"
+            },
+            "development": {
+              "browserTarget": "ngstore:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngstore:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/ngstore/src/**/*.ts",
+              "apps/ngstore/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ngstore"],
+          "options": {
+            "jestConfig": "apps/ngstore/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ngstore-e2e": {
+      "root": "apps/ngstore-e2e",
+      "sourceRoot": "apps/ngstore-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ngstore-e2e/cypress.json",
+            "devServerTarget": "ngstore:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngstore:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ngstore-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/ui/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
@@ -153,5 +296,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "will-app"
+  "defaultProject": "ngstore"
 }

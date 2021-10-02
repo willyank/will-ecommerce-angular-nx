@@ -27,12 +27,22 @@
     ]
   },
   "projects": {
-    "will-app": {
+    "admin": {
       "tags": []
     },
-    "will-app-e2e": {
+    "admin-e2e": {
       "tags": [],
-      "implicitDependencies": ["will-app"]
+      "implicitDependencies": ["admin"]
+    },
+    "ngstore": {
+      "tags": []
+    },
+    "ngstore-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ngstore"]
+    },
+    "ui": {
+      "tags": []
     }
   }
 }
