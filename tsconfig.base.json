@@ -13,9 +13,13 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
-      "@wilyan-company/ui": ["libs/ui/src/index.ts"]
+      "@wilyan-company/orders": ["libs/orders/src/index.ts"],
+      "@wilyan-company/products": ["libs/products/src/index.ts"],
+      "@wilyan-company/ui": ["libs/ui/src/index.ts"],
+      "@wilyan-company/users": ["libs/users/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
