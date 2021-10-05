@@ -1,0 +1,120 @@
+﻿.a-input {
+  font-size: rem(14);
+  padding: rem(21) rem(25);
+  background-color: $theme-main.color-10;
+  border: rem(1) solid $theme-main.color-12;
+  position: relative;
+  transition: all .2s ease;
+
+  &--disable {
+    border-color: $theme-main.color-4;
+    opacity: 0.4;
+    pointer-events: none;
+    user-select: none;
+
+    .a-input__input,
+    .a-input__label {
+      color: $theme-main.color-3;
+    }
+  }
+
+  &--invalid,
+  &.--invalid {
+    border-color: $theme-main.color-7;
+    //z-index: 2;
+  }
+
+  &--date {
+    padding-right: rem(45);
+  }
+
+  &--date::after {
+    content: $icons.calendar-outline;
+    position: absolute;
+    font-size: rem(20);
+    color: $theme-main.color-3;
+    opacity: 0.4;
+    top: 50%;
+    transform: translateY(-50%);
+    right: rem(24);
+  }
+}
+
+.a-input.focus, .a-input--active {
+  background-color: $theme-main.color-2;
+
+  & .a-input__label,
+  .a-input__input {
+    color: $theme-main.color-10;
+  }
+}
+
+.a-input__label {
+  color: $theme-main.color-3;
+  display: block;
+  text-transform: uppercase;
+  font-weight: $fontweight.medium;
+  font-size: rem(13);
+  line-height: 1.8;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &--after {
+    font-size: rem(12);
+    font-weight: $fontweight.regular;
+    text-transform: initial;
+  }
+
+  &--invalid-inner {
+    color: $theme-main.color-7;
+
+    &::before {
+        content: $icons.alert-round;
+        font-size: rem(14);
+        margin-right: rem(7);
+        vertical-align: text-bottom;
+        color: $theme-main.color-7;
+        font-family: $fontfamily.icon;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        line-height: 1;
+        display: inline-block;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+}
+
+.a-input__input {
+  display: block;
+  font-size: rem(15);
+  background-color: $colors.invisible;
+  width: 100%;
+  border: none;
+  outline: none;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+.a-input__figure {
+  position: absolute;
+  right: rem(25);
+  bottom: rem(19);
+}
+
+@media only screen and (max-width: $media.xs) {
+  .a-input {
+    padding: rem(20) rem(15);
+  }
+}

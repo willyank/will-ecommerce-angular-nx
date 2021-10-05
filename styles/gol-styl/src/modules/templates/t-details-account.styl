@@ -1,0 +1,35 @@
+.t-details-account__list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: rem(24);
+}
+
+.t-details-account__text {
+  font-size: rem(16);
+  line-height: 1.38;
+}
+
+.t-details-account__title {
+  font-weight: $fontweight.medium;
+  color: $theme-main.color-2;
+}
+
+.t-details-account__br {
+  display: block;
+}
+
+@media only screen and (max-width: $media.md) {
+
+  // .t-details-account__grid:not(:last-child) {      
+  //   margin-bottom: rem(17);
+  // }
+  
+  .t-details-account__list {
+    grid-template-columns: 1fr;
+    row-gap: rem(17);
+  } 
+}

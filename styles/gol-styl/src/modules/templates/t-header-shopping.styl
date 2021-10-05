@@ -1,0 +1,44 @@
+@import "styles/gol-styl/src/core/setup.styl"
+
+.t-header-shopping {
+  display: flex;
+  align-items: center;
+}
+
+.t-header-shopping__text {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: rem(24);
+  theme(color, $theme-main.color-3);
+  font-size: rem(16);
+}
+
+.t-header-shopping__text-mb {
+  display: none;
+}
+
+.t-header-shopping__strong {
+  theme(color, $theme-main.color-2);
+  font-weight: $fontweight.medium;
+}
+
+@media only screen and (max-width: $media.xs) {
+
+  .t-header-shopping__text {
+    margin-right: rem(8);
+  }
+
+  .t-header-shopping__text-mb {
+    display: block;
+    theme(color, $theme-main.color-3);
+    font-size: rem(14);
+    margin-top: 0;
+    margin-bottom: rem(12);
+    padding-left: rem(12);
+    padding-right: rem(12)
+    text-align: right;
+    line-height: 1.5;
+    max-width: rem(165);
+    margin-left: auto;
+  }
+}

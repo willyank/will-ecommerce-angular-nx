@@ -1,0 +1,19 @@
+﻿.a-link {
+  color: $theme-main.color-6;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 0;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@media only screen and (max-width: $media.xs) {
+  .a-link:hover,
+  .a-link:focus {
+    text-decoration: underline;
+  }
+}

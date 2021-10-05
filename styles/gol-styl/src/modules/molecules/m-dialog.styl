@@ -1,0 +1,60 @@
+.m-dialog {
+  max-width: rem(530);
+  position: relative;
+}
+
+.m-dialog__title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.m-dialog__close {
+  font-size: 0;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  cursor: pointer;
+
+  &::before {
+    content: $icons.close;
+    font-size: rem(15);
+    color: $theme-main.color-2;
+  }
+}
+
+.m-dialog__body {
+  margin-top: 0;
+  margin-bottom: rem(16);
+}
+
+.m-dialog__text {
+  font-size: rem(16);
+  line-height: 1.5;
+  color: $theme-main.color-3;
+  padding-bottom: rem(16);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.m-dialog__cta {
+  margin-right: rem(24);
+}
+
+@media only screen and (max-width: $media.xs) {
+  .m-dialog {
+    padding: rem(24);
+  }
+
+  .m-dialog__close {
+    top: rem(24);
+    right: rem(24);
+  }
+
+  .m-dialog__cta {
+    margin-right: rem(10);
+  }
+}

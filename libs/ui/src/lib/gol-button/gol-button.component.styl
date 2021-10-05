@@ -1,0 +1,150 @@
+﻿@import "styles/gol-styl/src/core/setup.styl"
+
+.a-btn {
+  border: rem(1) solid $theme-main.color-2;
+  color: $theme-main.color-2;
+  padding: rem(16) rem(36);
+  text-transform: uppercase;
+  font-weight: $fontweight.bold;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  background-color: $theme-main.color-10;
+
+  &--orange {
+    border-color: $theme-main.color-1;
+    background-color: $theme-main.color-1;
+  }
+
+  &--bright {
+    theme(color, $theme-main.color-10);
+    theme(border-color, $theme-main.color-10);
+    theme(background-color, $theme-main.color-2);
+  }
+
+  &--transparent {
+    theme(color, $theme-main.color-10);
+    theme(border-color, $theme-main.color-10);
+    background-color: transparent;
+    font-weight: $fontweight.medium;
+  }
+
+  &--disabled,
+  &--disabled[disabled] {
+    pointer-events: none;
+    user-select none;
+    color: $theme-main.color-3 !important;
+    background-color: $theme-main.color-4 !important;
+    border-color: $theme-main.color-4 !important;
+
+    &:hover,
+    &:focus {
+      color: $theme-main.color-10 !important;
+      background-color: $theme-main.color-4 !important;
+      border-color: $theme-main.color-4 !important;
+    }
+  }
+
+  &--disabled-opacity,
+  &--disabled-opacity[disabled] {
+      border-color: $theme-main.color-3 !important;
+    pointer-events: none;
+    user-select none;
+    opacity: 0.6;
+  }
+
+  &--lower {
+    text-transform: none;
+  }
+
+   &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--is-bg-transparent {
+    background-color: transparent;
+  }
+
+  &--loading {
+    position: relative;
+    padding-left: rem(50);
+    padding-right: rem(22);
+
+    &::before {
+      content: '';
+      display: block;
+      width: rem(18);
+      height: rem(18);
+      background-image: url('/assets/img/loading.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      left: rem(22);
+      top: rem(13);
+      animation: loading 2s infinite linear;
+    }
+  }
+
+  &--link {
+    text-decoration: none;
+  }
+}
+
+.a-btn__loading {
+  height: rem(18);
+  margin-right: rem(20);
+}
+
+@media only screen and (min-width: $media.md) {
+  .a-btn {
+    transition: background-color .15s ease-in-out, color .15s ease;
+
+    &:hover,
+    &:focus {
+      color: $theme-main.color-10;
+      background-color: $theme-main.color-2;
+    }
+
+    &--orange:hover,
+    &--orange:focus {
+      color: $theme-main.color-10;
+      border-color: transparent;
+    }
+
+    &--transparent:hover,
+    &--transparent:focus {
+      theme(color, $theme-main.color-2);
+      theme(background-color, $theme-main.color-10);
+    }
+
+    &--just {
+      padding: rem(16) rem(24);
+    }
+
+    &--loading:hover,
+    &--loading:focus {
+      &:before {
+        filter: invert(1);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $media.xs) {
+  .a-btn {
+    text-align: center;
+    font-size: rem(16);
+
+    &--mobile-full {
+      width: 100%;
+      display: block;
+      margin-bottom: rem(10);
+    }
+
+    &--just {
+      padding: rem(16) rem(15);
+    }
+  }
+}

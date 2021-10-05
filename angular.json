@@ -140,7 +140,10 @@
               "apps/ngstore/src/favicon.ico",
               "apps/ngstore/src/assets"
             ],
-            "styles": ["apps/ngstore/src/styles.scss"],
+            "styles": [
+              "apps/ngstore/src/styles.scss",
+              "styles/gol-styl/output/main.styl"
+            ],
             "scripts": []
           },
           "configurations": {

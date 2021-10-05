@@ -1,0 +1,23 @@
+.v-scroll {
+  padding-right: rem(7);
+  
+  &::-webkit-scrollbar {
+    width: rem(6);
+    background-color: $theme-main.color-10;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: rem(4);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $theme-main.color-3;
+    border-radius: rem(4);
+    border: rem(1) solid transparent;
+    background-clip: padding-box;
+
+    &:hover {
+      background-color: $theme-main.color-9;
+    }
+  }
+}

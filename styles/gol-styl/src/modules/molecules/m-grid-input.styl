@@ -1,0 +1,108 @@
+﻿.m-grid-input {
+  display: grid;
+  grid-template-columns: rem(282) rem(435) rem(435);
+  grid-template-rows: auto;
+
+  &--thin {
+    grid-template-columns: rem(385) rem(385) rem(275);
+  }
+
+  &--large {
+    grid-template-columns: rem(275) auto rem(175);
+  }
+
+   &--four-columns {
+    grid-template-columns: rem(275) auto auto rem(175);
+  }
+
+  &--three-columns {
+    grid-template-columns: auto auto auto;
+  }
+
+  &--four-equals {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &--equal {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: rem(-1);
+  }
+}
+
+.m-grid-input__item {
+  position: relative;
+  margin-right: rem(-1);
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.m-grid-input__btn {
+  display: block;
+  position: absolute;
+  border: rem(1) solid;
+  theme(border-color, $theme-main.color-4);
+  theme(background-color, $theme-main.color-10);
+  border-radius: 50%;
+  width: rem(30);
+  height: rem(30);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-size: 0;
+  right: rem(-15);
+  padding-left: 0;
+  padding-right: 0;
+  transition: transform 0.2s ease-in-out;
+
+  &--reverse {
+    transform: translateY(-50%) rotate(-180deg);
+  }
+
+  &::before,
+  &::after {
+    theme(color, $theme-main.color-1);
+    font-size: rem(11);
+    position: absolute;
+    font-weight: $fontweight.bold;
+  }
+
+  &::before {
+    content: $icons.thin-arrow-left;
+    top: rem(6);
+    left: rem(5);
+  }
+
+  &::after {
+    content: $icons.thin-arrow-right;
+    bottom: rem(6);
+    right: rem(5);
+  }
+}
+
+@media only screen and (max-width: $media.md) {
+  .m-grid-input {
+    grid-template-columns: auto;
+    row-gap: 0;
+
+    &:not(:last-child) {
+      margin-bottom: rem(16);
+    }
+  }
+
+  .m-grid-input__item {
+    margin-bottom: rem(16);
+
+    &--group {
+      margin-bottom: rem(-1);
+    }
+  }
+
+  .m-grid-input__btn {
+    display: none;
+  }
+}

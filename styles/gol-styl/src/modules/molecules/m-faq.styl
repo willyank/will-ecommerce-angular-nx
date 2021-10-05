@@ -1,0 +1,128 @@
+﻿.m-faq {
+  border: rem(1) solid;
+  theme(border-color, $theme-main.color-4);
+}
+
+.m-faq__head {
+  padding: rem(24) rem(40);
+  border: none;
+  background: none;
+  width: 100%;
+  font-size: rem(16);
+  line-height: 1.5;
+  font-weight: $fontweight.medium;
+  theme(color, $theme-main.color-2);
+  text-align: left;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.m-faq__arrow {
+  flex-shrink: 0;
+  margin-left: rem(20);
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+.m-faq__arrow--active {
+  transform: rotate(-90deg);
+}
+
+.m-faq__content {
+  padding-left: rem(40);
+  padding-right: rem(40);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease, visibility 0.2s ease;
+}
+
+.m-faq__body {
+  theme(color, $theme-main.color-3);
+  font-size: rem(14);
+  line-height: 1.5;
+  padding-right: rem(50);
+}
+
+.m-faq__body-content {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.m-faq__foot {
+  theme(color, $theme-main.color-3);
+  border-top: rem(1) solid;
+  theme(border-top-color, $theme-main.color-4);
+  padding-top: rem(24);
+  padding-bottom: rem(24);
+  margin-top: rem(24);
+  display: flex;
+  align-items: center;
+}
+
+.m-faq__text {
+  font-size: rem(16);
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: rem(30);
+}
+
+.m-faq__btn {
+  border: none;
+  background: none;
+  font-size: 0;
+  padding-left: 0;
+  padding-right: 0;
+
+  &::before {
+    font-size: rem(24);
+    theme(color, $theme-main.color-3);
+  }
+
+  &--like {
+    margin-top: rem(-6);
+    margin-right: rem(16);
+
+    &::before {
+      content: $icons.like;
+    }
+  }
+
+  &--deslike {
+    margin-top: rem(4);
+
+    &::before {
+      content: $icons.deslike;
+    }
+  }
+
+  // &:hover::before {
+  //   theme(color, $theme-main.color-9);
+  // }
+
+  &--active::before,
+  &:active::before {
+    theme(color, $theme-main.color-1);
+  }
+}
+
+@media only screen and (max-width: $media.xs) {
+  .m-faq__head {
+    padding-left: rem(24);
+    padding-right: rem(24);
+  }
+
+  .m-faq__content {
+    padding-left: rem(24);
+    padding-right: rem(24);
+  }
+
+  .m-faq__body {
+    padding-right: 0;
+  }
+
+  .m-faq__title {
+    font-size: rem(14);
+  }
+}

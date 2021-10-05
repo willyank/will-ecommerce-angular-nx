@@ -1,0 +1,38 @@
+.m-list-checkbox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.m-list-checkbox__item {
+  margin-top: rem(12);
+  margin-bottom: rem(12);
+}
+
+.m-list-checkbox__item:not(:last-child) {
+  margin-right: rem(30);
+}
+
+
+
+.m-list-checkbox--block {
+  flex-flow: column;
+  align-items: flex-start;
+
+  .m-list-checkbox__item {
+    margin-bottom: rem(14);
+
+    .a-checkbox__label {
+      font-size: rem(14);
+      padding-left: rem(35);
+
+      &::before {
+        width: rem(16);
+        height: rem(16);
+      }
+    }
+  }
+
+}

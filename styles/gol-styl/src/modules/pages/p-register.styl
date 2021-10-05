@@ -1,0 +1,47 @@
+.p-register__title {
+  padding-bottom: rem(25);
+  border-bottom: rem(1) solid $theme-main.color-4;
+}
+
+.p-register__text {
+  line-height: 1.5;
+  font-size: rem(18);
+  color: $theme-main.color-3;
+  margin-top: rem(32);
+  padding-left: rem(34);
+}
+
+.p-register__foot {
+  margin-top: rem(42);
+  margin-bottom: rem(80);
+}
+
+.p-register__foot-check {
+  margin-top: rem(24);
+}
+
+.p-register__bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: transform 0.3s ease;
+  transform: translateY(100%);
+
+  &--active {
+    transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: $media.xs) {
+  .p-register__title {
+    padding-bottom: rem(56);
+  }
+
+  .p-register__form {
+    padding-top: rem(30);
+  }
+
+  .p-register__anchor {
+    text-align: right;
+  }
+}

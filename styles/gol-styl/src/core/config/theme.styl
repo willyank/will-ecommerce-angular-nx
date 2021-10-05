@@ -1,0 +1,24 @@
+theme($propety, $color = neutral, $forced-color = false) {
+
+  {$propety}: $color;
+
+  .accessibility-mode & {
+    if ($forced-color) {
+      {$propety}: $forced-color;
+    }
+    else {
+      if (dark(rgba($color), 1)) {
+        {$propety}: $colors.color-black;
+      } else {
+        {$propety}: $colors.color-white;
+      }
+    }
+  }
+}
+
+// contrast() {
+//   .accessibility-mode & {
+//     filter: grayscale(100%) brightness(90%);
+//     -webkit-filter: grayscale(100%) brightness(90%);
+//   }
+// }

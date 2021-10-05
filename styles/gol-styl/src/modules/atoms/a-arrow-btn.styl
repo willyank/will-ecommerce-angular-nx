@@ -1,0 +1,42 @@
+﻿.a-arrow-btn {
+  font-size: 0;
+  width: rem(40);
+  height: rem(40);
+  border-radius: 50%;
+  border: rem(1) solid $theme-main.color-4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $theme-main.color-10;
+  z-index: 2;
+
+  &::before {
+    content: $icons.arrow-right;
+    font-size: rem(12);
+    font-weight: $fontweight.regular;
+    display: block;
+    theme(color, $theme-main.color-2);
+    // color: $theme-main.color-1;
+    right: rem(5);
+    transition: all 0.4s ease;
+  }
+
+  &:disabled,
+  &--disabled {
+    opacity: .5;
+    cursor: auto;
+    pointer-events: none;
+  }
+}
+
+@media only screen and (max-width: $media.xs) {
+  .a-arrow-btn {
+    max-width: rem(32);
+    max-height: rem(32);
+
+    &::before {
+      font-size: rem(10);
+      font-weight: $fontweight.regular;
+    }
+  }
+}

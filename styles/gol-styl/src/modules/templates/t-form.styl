@@ -1,0 +1,138 @@
+﻿.t-form--space {
+  padding-bottom: rem(60);
+}
+
+.t-form__ctn {
+  padding-top: rem(64);
+  padding-bottom: rem(64);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+
+  &--border-top {
+    border-top: 1px solid $theme-main.color-4;
+  }
+
+  &--border-bottom {
+    border-bottom: 1px solid $theme-main.color-4;
+  }
+
+  &--no-top {
+    padding-top: 0;
+  }
+
+  &--no-bottom {
+    padding-bottom: 0;
+  }
+
+  &--align-right .t-form__item {
+    grid-column-start: 2;
+  }
+}
+
+.t-form__ctn--align-right .t-form__item {
+    grid-column-start: 2;
+}
+
+.t-form__section {
+  padding: 0;
+  border: 0;
+
+  &--highlight {
+    background-color: $theme-main.color-5;
+  }
+
+  &--bottom-spaced {
+    padding-bottom: rem(50);
+  }
+}
+
+.t-form__main-title {
+  margin-top: 0;
+}
+
+.t-form__title {
+  margin-top: 0;
+}
+
+.t-form__item {
+  //max-width: rem(560);
+  width: 100%;
+}
+
+.t-form__text {
+  font-size: rem(16);
+  line-height: 1.5;
+  theme(color, $theme-main.color-3);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.t-form__check {
+  margin-top: rem(16);
+}
+
+.t-form__anchor {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+@media only screen and (max-width: $media.md) {
+  .t-form__ctn {
+    grid-template-columns: 1fr;
+
+      &--align-right .t-form__item {
+      grid-column-start: 1;
+    }
+  }
+
+  .t-form__item {
+    max-width: none;
+  }
+}
+
+@media only screen and (max-width: $media.xs) {
+  .t-form {
+    padding-top: 0;
+  }
+
+  .t-form__ctn {
+    grid-template-columns: auto;
+    padding-top: rem(30);
+    padding-bottom: rem(30);
+
+    &--border-top {
+      padding-top: rem(30);
+    }
+  }
+
+  .t-form__section {
+    &--bottom-spaced {
+      padding-bottom: rem(80);
+    }
+
+    &--bottom-mb-spaced {
+      padding-bottom: rem(36);
+    }
+
+    &--top-mb-spaced {
+      padding-top: rem(28);
+    }
+  }
+
+  .t-form__main-title {
+    margin-bottom: rem(20);
+  }
+
+  .t-form__title {
+    font-size: rem(20);
+    // margin-bottom: rem(20);
+    font-weight: $fontweight.medium;
+  }
+
+  .t-form__text {
+    font-size: rem(14);
+  }
+}

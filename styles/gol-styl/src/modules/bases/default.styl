@@ -1,0 +1,62 @@
+﻿* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 14px;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+
+  &.scrollBehavior {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: $fontfamily.main;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  position: relative;
+  color: $theme-main.color-2;
+  font-size: 14px;
+  // color: var(--test);
+}
+
+a {
+  color: $theme-main.color-6;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus {
+  outline: rem(1) solid $theme-main.color-1;
+}
+
+input:focus ~ .v-no-outline {
+  outline: none;
+}
+
+[aria-hidden="true"] {
+  visibility: hidden;
+}
+
+
+@media only screen and (max-width: $media.xs) {
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+}

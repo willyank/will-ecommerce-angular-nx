@@ -1,0 +1,138 @@
+﻿.t-payment__title {
+  margin-top: 0;
+  margin-bottom: rem(32);
+}
+
+.t-payment__text {
+  font-size: rem(16);
+  theme(color, $theme-main.color-3);
+  margin-top: 0;
+  margin-bottom: rem(16);
+  line-height: 1.5;
+
+  &--checkbox {
+    margin-top: rem(32);
+  }
+
+  &--highlight {
+    font-size: rem(24);
+    theme(color, $theme-main.color-1);
+    font-weight: bold;
+  }
+}
+
+.t-payment__box {
+  width: rem(272);
+  height: rem(81);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: rem(1) solid;
+  theme(border-color, $theme-main.color-4);
+  margin-bottom: rem(24);
+}
+
+.t-payment__notification {
+  font-size: rem(16);
+  line-height: 1.5;
+  margin-bottom: rem(40);
+}
+
+.t-payment__pay-method-text {
+  font-size: rem(16);
+  theme(color, $theme-main.color-3);
+  margin-bottom: rem(32);
+  margin-top: 0;
+  line-height: 1.5;
+
+  strong {
+    theme(color, $theme-main.color-2);
+    font-weight: $fontweight.medium;
+
+    &.t-payment__method-text--no-dark {
+      theme(color, $theme-main.color-3);
+    }
+  }
+
+  &::before {
+    font-size: rem(20);
+    margin-right: rem(12);
+    theme(color, $theme-main.color-2);
+  }
+
+  &--success {
+    theme(color, $theme-main.color-8);
+    font-size: rem(14);
+    margin-top: rem(30);
+    padding-left: rem(24);
+    position: relative;
+
+    &:before {
+      content: '\2713';
+      theme(color, $theme-main.color-10);
+      theme(background-color, $theme-main.color-8);
+      border-radius: 50%;
+      margin-right: rem(8);
+      width: rem(16);
+      height: rem(16);
+      line-height: rem(16);
+      display: block;
+      text-align: center;
+      font-size: rem(12);
+      position: absolute;
+      left: 0;
+      top: rem(2);
+    }
+  }
+}
+
+.t-payment__pay-method-tooltip {
+  display: flex;
+  text-decoration: none;
+  font-size: rem(16);
+  margin-bottom: 0;
+  margin-top: rem(20);
+  theme(color, $theme-main.color-3);
+}
+
+.t-payment__checkbox {
+  font-size rem(16);
+
+  & strong {
+    theme(color, $theme-main.color-2);
+    font-weight: $fontweight.medium;
+  }
+}
+
+@media only screen and (max-width: $media.xs) {
+  .t-payment__title {
+    font-size: rem(20);
+    margin-bottom: rem(24);
+  }
+
+  .t-payment__text {
+    margin-bottom: rem(28);
+  }
+
+  .t-payment__box {
+    width: 100%;
+  }
+
+  .t-payment__pay-method-text {
+    br {
+      display: none;
+    }
+  }
+
+  .t-payment__pay-method-input {
+    margin-bottom: rem(21);
+  }
+
+  .t-payment__stretches-detail {
+    max-width: 'calc(100vw - %s)' % rem(25);
+  }
+
+  .t-payment__section {
+    padding-bottom: rem(2);
+  }
+}

@@ -1,0 +1,23 @@
+.m-block-radio__desc {
+  color: $theme-main.color-3;
+  font-size: rem(16);
+  line-height: rem(24);
+  margin-top: 0;
+
+  strong {
+    color: $theme-main.color-2;
+  }
+}
+
+.m-block-radio__fieldset {
+  border: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: $media.xs) {
+  .m-block-radio__desc {
+    br {
+      display: none;
+    }
+  }
+}
