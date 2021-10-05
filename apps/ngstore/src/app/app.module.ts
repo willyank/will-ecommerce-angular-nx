@@ -7,6 +7,7 @@ import { LayoutDefaultModule } from './shared/layouts/layouts.module';
 import { DefaultComponent } from './shared/layouts/default/default.component';
 import { OnlyHeaderComponent } from './shared/layouts/only-header/only-header-layout.component';
 import { UiModule } from '@wilyan-company/ui';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -42,6 +43,7 @@ const routes: Routes = [
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
     LayoutDefaultModule,
     UiModule,
