@@ -8,7 +8,7 @@
     "start": "node ./apps/admin/server.js",
     "build": "nx build",
     "test": "nx test",
-    "heroku-postbuild": "nx build admin --prod"
+    "heroku-postbuild": "nx build $APP_NAME --prod"
   },
   "engines": {
     "node": "12.18.2",
