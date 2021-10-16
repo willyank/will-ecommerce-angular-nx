@@ -41,10 +41,13 @@ const rountes: Routes = [
   imports: [
     HttpClientModule,
     BrowserModule,
+
+    //primeng
     CardModule,
     ToolbarModule,
     TableModule,
     ButtonModule,
+
     RouterModule.forRoot(rountes, { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],
