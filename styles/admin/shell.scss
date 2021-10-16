@@ -17,6 +17,17 @@
     height: 100%;
     top: 0;
 
+    .version {
+      font-size: small;
+      text-align: center;
+      color: var(--surface-a);
+      position: fixed;
+      bottom: 0;
+      width: 175px;
+      padding: 10px;
+      line-height: normal;
+    }
+
     .logo {
       padding: 20px;
       width: 100%;
