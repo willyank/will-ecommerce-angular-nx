@@ -7,7 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "build": "nx build",
     "test": "nx test",
-    "start": "node ./apps/$APP_NAME/server.js",
+    "start": "node ./server.js",
     "heroku-postbuild": "nx build $APP_NAME --prod"
   },
   "engines": {
