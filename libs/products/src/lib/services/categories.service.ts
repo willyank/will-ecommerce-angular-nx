@@ -14,7 +14,7 @@ export class CategoriesService {
 
   getCategories(): Observable<Category[]> {
     //return this.http.get<Category[]>(this.apiURLCategories);
-    return of([{ id: '123', name: 'from service', icon: 'icon-test' }]);
+    return of([{ id: 'abc-123', name: 'from service', icon: 'icon-test' }]);
   }
 
   getCategory(categoryId: string): Observable<Category> {
