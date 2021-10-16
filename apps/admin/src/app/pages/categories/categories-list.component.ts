@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from './models/category.model';
+import { CategoriesService, Category } from '@willyan-company/products';
 
 @Component({
   selector: 'admin-categories',
@@ -8,15 +8,11 @@ import { Category } from './models/category.model';
 export class CategoriesComponent implements OnInit {
   categories: Category[];
 
-  constructor() {}
+  constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
-    this.categories = [
-      {
-        id: 1,
-        icon: 'ico',
-        name: 'First category',
-      },
-    ];
+    this.categoriesService
+      .getCategories()
+      .subscribe((res) => (this.categories = res));
   }
 }

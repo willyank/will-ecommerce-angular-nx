@@ -5,7 +5,7 @@
       "projectType": "application",
       "root": "apps/admin",
       "sourceRoot": "apps/admin/src",
-      "prefix": "wilyan-company",
+      "prefix": "willyan-company",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -124,7 +124,7 @@
       "projectType": "application",
       "root": "apps/ngstore",
       "sourceRoot": "apps/ngstore/src",
-      "prefix": "wilyan-company",
+      "prefix": "willyan-company",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "wilyan-company",
+            "prefix": "willyan-company",
             "style": "kebab-case"
           }
         ]

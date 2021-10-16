@@ -16,10 +16,11 @@
     "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
-      "@wilyan-company/orders": ["libs/orders/src/index.ts"],
-      "@wilyan-company/products": ["libs/products/src/index.ts"],
-      "@wilyan-company/ui": ["libs/ui/src/index.ts"],
-      "@wilyan-company/users": ["libs/users/src/index.ts"]
+      "@willyan-company/orders": ["libs/orders/src/index.ts"],
+      "@willyan-company/products": ["libs/products/src/index.ts"],
+      "@willyan-company/ui": ["libs/ui/src/index.ts"],
+      "@willyan-company/users": ["libs/users/src/index.ts"],
+      "@env/*": ["environments/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

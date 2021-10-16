@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'wilyan-company-root',
+  selector: 'willyan-company-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
