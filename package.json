@@ -9,7 +9,7 @@
     "build": "nx build",
     "test": "nx test",
     "start": "node ./server.js",
-    "heroku-postbuild": "node ./replace.build.js & nx build admin --prod"
+    "heroku-postbuild": "node ./replace.build.js & nx build $APP_NAME --prod"
   },
   "engines": {
     "node": "12.18.2",
