@@ -2,6 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// Deveria ser escopo de cada projeto ou global mesmo??
 export const environment = {
   version: require('../package.json').version,
   versionDate: new Date().toLocaleString(),

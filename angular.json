@@ -37,6 +37,10 @@
               ],
               "fileReplacements": [
                 {
+                  "replace": "environments/environment.ts",
+                  "with": "environments/environment.prod.ts"
+                },
+                {
                   "replace": "apps/admin/src/environments/environment.ts",
                   "with": "apps/admin/src/environments/environment.prod.ts"
                 }
@@ -158,6 +162,10 @@
                 }
               ],
               "fileReplacements": [
+                {
+                  "replace": "environments/environment.ts",
+                  "with": "environments/environment.prod.ts"
+                },
                 {
                   "replace": "apps/ngstore/src/environments/environment.ts",
                   "with": "apps/ngstore/src/environments/environment.prod.ts"
