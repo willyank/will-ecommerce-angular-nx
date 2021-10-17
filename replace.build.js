@@ -1,41 +1,41 @@
 var replace = require('replace-in-file');
-var packageJson = require('./package.json');
-const exec = require('child_process').exec;
+// var packageJson = require('./package.json');
+// const exec = require('child_process').exec;
 
-const commitNumber = exec('git rev-list --all --count');
-commitNumber.stdout.on('data', function (numb) {
-  const gitCommitNumber = Number(numb);
+// const commitNumber = exec('git rev-list --all --count');
+// commitNumber.stdout.on('data', function (numb) {
+//   const gitCommitNumber = Number(numb);
 
-  var versionArray = packageJson.version.toString().split('.');
-  var newVersion =
-    '"version": "' +
-    versionArray[0] +
-    '.' +
-    versionArray[1] +
-    '.' +
-    gitCommitNumber +
-    '"';
+//   var versionArray = packageJson.version.toString().split('.');
+//   var newVersion =
+//     '"version": "' +
+//     versionArray[0] +
+//     '.' +
+//     versionArray[1] +
+//     '.' +
+//     gitCommitNumber +
+//     '"';
 
-  const optionsVersion = {
-    files: './package.json',
-    from: /"version": "(.*)"/g,
-    to: newVersion,
-    allowEmptyPaths: false,
-  };
+//   const optionsVersion = {
+//     files: './package.json',
+//     from: /"version": "(.*)"/g,
+//     to: newVersion,
+//     allowEmptyPaths: false,
+//   };
 
-  try {
-    let changedFiles = replace.sync(optionsVersion);
-    if (changedFiles == 0) {
-      throw (
-        "Please make sure that file '" + options.files + "' has \"version: ''\""
-      );
-    }
-    console.log('Build version set: ' + newVersion);
-  } catch (error) {
-    console.error('Error occurred:', error);
-    throw error;
-  }
-});
+//   try {
+//     let changedFiles = replace.sync(optionsVersion);
+//     if (changedFiles == 0) {
+//       throw (
+//         "Please make sure that file '" + options.files + "' has \"version: ''\""
+//       );
+//     }
+//     console.log('Build version set: ' + newVersion);
+//   } catch (error) {
+//     console.error('Error occurred:', error);
+//     throw error;
+//   }
+// });
 
 var optsDate = {
   timeZone: 'America/Sao_Paulo',
@@ -82,41 +82,41 @@ try {
   throw error;
 }
 
-function setAuthor(name) {
-  var author = `"authorCommit": "${name.trim()}"`;
-  try {
-    const optionsAuthor = {
-      files: './package.json',
-      from: /"authorCommit": "(.*)"/g,
-      to: author,
-      allowEmptyPaths: false,
-    };
+// function setAuthor(name) {
+//   var author = `"authorCommit": "${name.trim()}"`;
+//   try {
+//     const optionsAuthor = {
+//       files: './package.json',
+//       from: /"authorCommit": "(.*)"/g,
+//       to: author,
+//       allowEmptyPaths: false,
+//     };
 
-    let changedFiles = replace.sync(optionsAuthor);
-    if (changedFiles == 0) {
-      throw (
-        "Please make sure that file '" +
-        optionsAuthor.files +
-        "' has \"authorCommit: ''\""
-      );
-    }
-    console.log('Build author set: ' + name);
-  } catch (error) {
-    console.error('Error occurred:', error);
-    throw error;
-  }
-}
+//     let changedFiles = replace.sync(optionsAuthor);
+//     if (changedFiles == 0) {
+//       throw (
+//         "Please make sure that file '" +
+//         optionsAuthor.files +
+//         "' has \"authorCommit: ''\""
+//       );
+//     }
+//     console.log('Build author set: ' + name);
+//   } catch (error) {
+//     console.error('Error occurred:', error);
+//     throw error;
+//   }
+// }
 
-const localBuild = exec('git config user.name');
-localBuild.stdout.on('data', function (localName) {
-  if (localName) {
-    console.log('Build local: ' + localName);
-    setAuthor(localName);
-  } else {
-    console.log('Build remoto, autor: ' + localName);
-    const commitAuthor = exec('git log -1 --pretty=format:"%an"');
-    commitAuthor.stdout.on('data', function (name) {
-      setAuthor(name);
-    });
-  }
-});
+// const localBuild = exec('git config user.name');
+// localBuild.stdout.on('data', function (localName) {
+//   if (localName) {
+//     console.log('Build local: ' + localName);
+//     setAuthor(localName);
+//   } else {
+//     console.log('Build remoto, autor: ' + localName);
+//     const commitAuthor = exec('git log -1 --pretty=format:"%an"');
+//     commitAuthor.stdout.on('data', function (name) {
+//       setAuthor(name);
+//     });
+//   }
+// });
