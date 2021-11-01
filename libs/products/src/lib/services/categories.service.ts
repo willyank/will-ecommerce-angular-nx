@@ -8,13 +8,13 @@ import { environment } from '@env/environment';
   providedIn: 'root',
 })
 export class CategoriesService {
-  apiURLCategories = environment.apiUrl + 'categories';
+  apiURLCategories = environment.adminApiUrl + 'categories';
 
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {
-    //return this.http.get<Category[]>(this.apiURLCategories);
-    return of([{ id: 'abc-123', name: 'from service', icon: 'icon-test' }]);
+    return this.http.get<Category[]>(this.apiURLCategories + '/all');
+    //return of([{ id: 'abc-123', name: 'from service', icon: 'icon-test' }]);
   }
 
   getCategory(categoryId: string): Observable<Category> {

@@ -2,5 +2,5 @@ export const environment = {
   version: require('../package.json').version,
   versionDate: require('../package.json').versionDate,
   production: true,
-  apiUrl: 'http://localhost:3000/api/v1/',
+  apiUrl: 'https://will-ecommerce-webapiadmin.azurewebsites.net/api/v1/',
 };
