@@ -7,7 +7,7 @@ export const environment = {
   version: require('../package.json').version,
   versionDate: new Date().toLocaleString(),
   production: false,
-  adminApiUrl: 'https://localhost:44344/api/v1/',
+  adminApiUrl: 'https://localhost:44344/api/',
 };
 
 /*

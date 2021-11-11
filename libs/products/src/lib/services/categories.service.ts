@@ -3,36 +3,40 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Category } from '../models/category.model';
 import { environment } from '@env/environment';
+import { BaseCrudService } from './base-crud.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CategoriesService {
-  apiURLCategories = environment.adminApiUrl + 'categories';
-
-  constructor(private http: HttpClient) {}
-
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.apiURLCategories + '/all');
-    //return of([{ id: 'abc-123', name: 'from service', icon: 'icon-test' }]);
+export class CategoriesService extends BaseCrudService<Category> {
+  constructor(protected http: HttpClient) {
+    super(http);
   }
 
-  getCategory(categoryId: string): Observable<Category> {
-    return this.http.get<Category>(`${this.apiURLCategories}/${categoryId}`);
+  protected getBaseUrl(): string {
+    return 'categories';
   }
+  // getCategories(): Observable<Category[]> {
+  //   return this.http.get<Category[]>(this.apiURLCategories + '/all');
+  //   //return of([{ id: 'abc-123', name: 'from service', icon: 'icon-test' }]);
+  // }
 
-  createCategory(category: Category): Observable<Category> {
-    return this.http.post<Category>(this.apiURLCategories, category);
-  }
+  // getCategory(categoryId: string): Observable<Category> {
+  //   return this.http.get<Category>(`${this.apiURLCategories}/${categoryId}`);
+  // }
 
-  updateCategory(category: Category): Observable<Category> {
-    return this.http.put<Category>(
-      `${this.apiURLCategories}/${category.id}`,
-      category
-    );
-  }
+  // createCategory(category: Category): Observable<Category> {
+  //   return this.http.post<Category>(this.apiURLCategories, category);
+  // }
 
-  deleteCategory(categoryId: string): Observable<any> {
-    return this.http.delete<any>(`${this.apiURLCategories}/${categoryId}`);
-  }
+  // updateCategory(category: Category): Observable<Category> {
+  //   return this.http.put<Category>(
+  //     `${this.apiURLCategories}/${category.id}`,
+  //     category
+  //   );
+  // }
+
+  // deleteCategory(categoryId: string): Observable<any> {
+  //   return this.http.delete<any>(`${this.apiURLCategories}/${categoryId}`);
+  // }
 }
