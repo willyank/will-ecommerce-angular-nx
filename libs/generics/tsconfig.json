@@ -9,8 +9,5 @@
     {
       "path": "./tsconfig.spec.json"
     }
-  ],
-  "paths": {
-    "@willyan-company/generics": ["../generics/src/index.ts"]
-  }
+  ]
 }

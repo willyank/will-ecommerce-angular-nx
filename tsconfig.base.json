@@ -18,11 +18,12 @@
     "types": ["node"],
     "baseUrl": ".",
     "paths": {
+      "@env/*": ["environments/*"],
+      "@willyan-company/generics": ["libs/generics/src/index.ts"],
       "@willyan-company/orders": ["libs/orders/src/index.ts"],
       "@willyan-company/products": ["libs/products/src/index.ts"],
       "@willyan-company/ui": ["libs/ui/src/index.ts"],
-      "@willyan-company/users": ["libs/users/src/index.ts"],
-      "@env/*": ["environments/*"]
+      "@willyan-company/users": ["libs/users/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

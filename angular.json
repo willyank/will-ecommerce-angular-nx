@@ -124,6 +124,28 @@
         }
       }
     },
+    "generics": {
+      "root": "libs/generics",
+      "sourceRoot": "libs/generics/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/generics/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/generics"],
+          "options": {
+            "jestConfig": "libs/generics/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "ngstore": {
       "projectType": "application",
       "root": "apps/ngstore",

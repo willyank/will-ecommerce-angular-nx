@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
 import { Category } from '../models/category.model';
-import { environment } from '@env/environment';
-import { BaseCrudService } from './base-crud.service';
-
+import { BaseCrudService } from '@willyan-company/generics';
 @Injectable({
   providedIn: 'root',
 })

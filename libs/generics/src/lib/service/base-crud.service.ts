@@ -1,12 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { Category } from '../models/category.model';
+import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 
-@Injectable({
-  providedIn: 'root',
-})
 export abstract class BaseCrudService<T> {
   protected apiURL = environment.adminApiUrl + 'v1/';
 
@@ -34,9 +29,7 @@ export abstract class BaseCrudService<T> {
   //     );
   //   }
 
-  deleteCategory(id: unknown): Observable<unknown> {
-    return this.http.delete<unknown>(
-      `${this.apiURL}${this.getBaseUrl()}/${id}`
-    );
+  delete(id: unknown): Observable<number> {
+    return this.http.delete<number>(`${this.apiURL}${this.getBaseUrl()}/${id}`);
   }
 }
