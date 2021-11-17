@@ -1,7 +1,16 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { BaseCrudService } from '../service/base-crud.service';
 
-export class ListAbstract<T> {
-  constructor(protected baseCrudService: BaseCrudService<T>) {}
+export abstract class ListAbstract<T> {
+  items: T[];
+
+  constructor(
+    protected baseCrudService: BaseCrudService<T>,
+    protected router: Router,
+    protected activatedRoute: ActivatedRoute
+  ) {
+    this.getAll();
+  }
 
   delete(id: unknown): void {
     this.baseCrudService.delete(id).subscribe((res: number) => {
@@ -13,5 +22,17 @@ export class ListAbstract<T> {
     });
   }
 
-  edit(obj: T): void {}
+  getAll(): void {
+    this.baseCrudService.getAll().subscribe((result) => {
+      this.items = result;
+    });
+  }
+
+  edit(id: unknown): void {
+    let route = 'edit';
+    if (id) {
+      route += '/' + id;
+    }
+    this.router.navigate([route], { relativeTo: this.activatedRoute });
+  }
 }

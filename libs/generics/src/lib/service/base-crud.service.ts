@@ -14,20 +14,17 @@ export abstract class BaseCrudService<T> {
     //return of([{ id: 'abc-123', name: 'from service', icon: 'icon-test' }]);
   }
 
-  //   getCategory(categoryId: string): Observable<Category> {
-  //     return this.http.get<Category>(`${this.apiURLCategories}/${categoryId}`);
-  //   }
+  get(id: unknown): Observable<T> {
+    return this.http.get<T>(`${this.apiURL}/${id}`);
+  }
 
-  //   createCategory(category: Category): Observable<Category> {
-  //     return this.http.post<Category>(this.apiURLCategories, category);
-  //   }
+  save(obj: T): Observable<T> {
+    if ((obj as any).id) {
+      return this.http.post<T>(`${this.apiURL}`, obj);
+    }
 
-  //   updateCategory(category: Category): Observable<Category> {
-  //     return this.http.put<Category>(
-  //       `${this.apiURLCategories}/${category.id}`,
-  //       category
-  //     );
-  //   }
+    return this.http.put<T>(`${this.apiURL}`, obj);
+  }
 
   delete(id: unknown): Observable<number> {
     return this.http.delete<number>(`${this.apiURL}${this.getBaseUrl()}/${id}`);
