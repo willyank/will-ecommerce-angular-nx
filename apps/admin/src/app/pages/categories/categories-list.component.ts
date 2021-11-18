@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CategoriesService, Category } from '@willyan-company/products';
 import { ListAbstract } from '@willyan-company/generics';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   selector: 'admin-categories',
   templateUrl: './categories-list.component.html',
 })
-export class CategoriesComponent extends ListAbstract<Category> {
+export class CategoriesListComponent extends ListAbstract<Category> {
   constructor(
     protected categoriesService: CategoriesService,
     protected router: Router,

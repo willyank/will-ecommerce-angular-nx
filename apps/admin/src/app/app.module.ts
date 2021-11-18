@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { CategoriesComponent } from './pages/categories/categories-list.component';
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { NgModule } from '@angular/core';
@@ -24,7 +23,10 @@ const rountes: Routes = [
       },
       {
         path: 'categories',
-        component: CategoriesComponent,
+        loadChildren: () =>
+          import('./pages/categories/categories.module').then(
+            (m) => m.CategoriesModule
+          ),
       },
     ],
   },
@@ -34,19 +36,12 @@ const rountes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    CategoriesComponent,
     ShellComponent,
     SidebarComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-
-    //primeng
-    CardModule,
-    ToolbarModule,
-    TableModule,
-    ButtonModule,
 
     RouterModule.forRoot(rountes, { initialNavigation: 'enabledBlocking' }),
   ],

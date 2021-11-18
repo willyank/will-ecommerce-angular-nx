@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { BaseCrudService } from '../service/base-crud.service';
+import { BaseCrudService } from '../services/base-crud.service';
 
 export abstract class ListAbstract<T> {
   items: T[];
@@ -9,7 +9,7 @@ export abstract class ListAbstract<T> {
     protected router: Router,
     protected activatedRoute: ActivatedRoute
   ) {
-    this.getAll();
+    this.items = this.activatedRoute.snapshot.data.list;
   }
 
   delete(id: unknown): void {
