@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
+import { Observable } from 'rxjs';
 
 export abstract class BaseCrudService<T> {
   protected apiURL = environment.adminApiUrl + 'v1/';
@@ -15,7 +15,7 @@ export abstract class BaseCrudService<T> {
   }
 
   get(id: unknown): Observable<T> {
-    return this.http.get<T>(`${this.apiURL}/${id}`);
+    return this.http.get<T>(`${this.apiURL}${this.getBaseUrl()}/${id}`);
   }
 
   save(obj: T): Observable<T> {

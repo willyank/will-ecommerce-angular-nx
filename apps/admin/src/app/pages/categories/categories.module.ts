@@ -1,19 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { ListServiceResolver } from '@willyan-company/generics';
+import { EditServiceResolver, ListServiceResolver } from '@willyan-company/generics';
 import { CategoriesService } from '@willyan-company/products';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
+
 import { CategoriesListComponent } from './categories-list.component';
 import { CategoriesListRoutingModule } from './categories-routing.module';
+import { CategoriesFormComponent } from './pages/categories-form/categories-form.component';
 
 @NgModule({
-  declarations: [CategoriesListComponent],
+  declarations: [CategoriesListComponent, CategoriesFormComponent],
   imports: [
+    CommonModule,
     // Routing Module
     CategoriesListRoutingModule,
 
@@ -23,7 +24,6 @@ import { CategoriesListRoutingModule } from './categories-routing.module';
     TableModule,
     ButtonModule,
   ],
-  exports: [CategoriesListComponent],
   providers: [
     {
       provide: 'baseCrudService',
@@ -31,6 +31,7 @@ import { CategoriesListRoutingModule } from './categories-routing.module';
       deps: [CategoriesService],
     },
     ListServiceResolver,
+    EditServiceResolver,
   ],
 })
 export class CategoriesModule {}

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { BaseCrudService } from './base-crud.service';
 
 @Injectable()
-export class ListServiceResolver implements Resolve<unknown[]> {
+export class EditServiceResolver implements Resolve<unknown> {
   constructor(
     @Inject('baseCrudService') private baseCrudService: BaseCrudService<unknown>
   ) {}
@@ -13,7 +13,7 @@ export class ListServiceResolver implements Resolve<unknown[]> {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): unknown[] | Observable<unknown[]> | Promise<unknown[]> {
-    return this.baseCrudService.getAll();
+  ): unknown | Observable<unknown> | Promise<unknown> {
+    return this.baseCrudService.get(route.params.id);
   }
 }

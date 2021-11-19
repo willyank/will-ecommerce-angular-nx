@@ -5,6 +5,7 @@
         <p-toolbar>
           <div class="p-toolbar-group-left">
             <p-button
+              (click)="new()"
               label="New"
               icon="pi pi-plus"
               styleClass="p-button-success"
@@ -36,11 +37,11 @@
               <td>
                 <p-button
                   (click)="delete(category.id)"
-                  styleClass="p-button-danger pi-mr-2"
+                  styleClass="p-button-danger mr-2"
                   icon="pi pi-trash"
                 ></p-button>
                 <p-button
-                  (click)="edit(category)"
+                  (click)="edit(category.id)"
                   styleClass="p-button-error"
                   icon="pi pi-pencil"
                 ></p-button>

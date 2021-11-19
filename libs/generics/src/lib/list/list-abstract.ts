@@ -1,4 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { BaseCrudService } from '../services/base-crud.service';
 
 export abstract class ListAbstract<T> {
@@ -28,11 +29,11 @@ export abstract class ListAbstract<T> {
     });
   }
 
+  new(): void {
+    this.router.navigate(['new'], { relativeTo: this.activatedRoute });
+  }
+
   edit(id: unknown): void {
-    let route = 'edit';
-    if (id) {
-      route += '/' + id;
-    }
-    this.router.navigate([route], { relativeTo: this.activatedRoute });
+    this.router.navigate(['edit/' + id], { relativeTo: this.activatedRoute });
   }
 }
