@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -41,7 +42,7 @@ const rountes: Routes = [
 
     RouterModule.forRoot(rountes, { initialNavigation: 'enabledBlocking' }),
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
   exports: [],
 })

@@ -20,10 +20,10 @@ export abstract class BaseCrudService<T> {
 
   save(obj: T): Observable<T> {
     if ((obj as any).id) {
-      return this.http.post<T>(`${this.apiURL}`, obj);
+      return this.http.put<T>(`${this.apiURL}${this.getBaseUrl()}`, obj);
     }
 
-    return this.http.put<T>(`${this.apiURL}`, obj);
+    return this.http.post<T>(`${this.apiURL}${this.getBaseUrl()}`, obj);
   }
 
   delete(id: unknown): Observable<number> {
