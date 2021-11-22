@@ -1,9 +1,11 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { MessageService } from 'primeng/api';
 
+import { RequestInterceptor } from './@core/interceptors/request.interceptor';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ShellComponent } from './shared/shell/shell.component';
@@ -40,9 +42,18 @@ const rountes: Routes = [
     HttpClientModule,
     BrowserModule,
 
+    NgxUiLoaderModule,
+
     RouterModule.forRoot(rountes, { initialNavigation: 'enabledBlocking' }),
   ],
-  providers: [MessageService],
+  providers: [
+    MessageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   exports: [],
 })
