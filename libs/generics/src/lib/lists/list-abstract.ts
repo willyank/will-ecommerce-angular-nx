@@ -1,8 +1,9 @@
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { BaseModel } from '../models/base.model';
 import { BaseCrudService } from '../services/base-crud.service';
 
-export abstract class ListAbstract<T> {
+export abstract class ListAbstract<T extends BaseModel> {
   items: T[];
 
   constructor(

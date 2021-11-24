@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 
-export abstract class BaseCrudService<T> {
+import { BaseModel } from '../models/base.model';
+
+export abstract class BaseCrudService<T extends BaseModel> {
   protected apiURL = environment.adminApiUrl + 'v1/';
 
   constructor(protected http: HttpClient) {}
@@ -19,7 +21,7 @@ export abstract class BaseCrudService<T> {
   }
 
   save(obj: T): Observable<T> {
-    if ((obj as any).id) {
+    if (obj.id) {
       return this.http.put<T>(`${this.apiURL}${this.getBaseUrl()}`, obj);
     }
 

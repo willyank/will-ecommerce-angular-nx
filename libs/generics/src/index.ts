@@ -1,5 +1,6 @@
 export * from './lib/generics';
 
+export * from './lib/models/base.model';
 export * from './lib/services/base-crud.service';
 export * from './lib/lists/list-abstract';
 export * from './lib/services/list-service.resolver';

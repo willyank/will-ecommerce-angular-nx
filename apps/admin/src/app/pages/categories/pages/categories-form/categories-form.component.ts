@@ -18,7 +18,7 @@ export class CategoriesFormComponent
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {
-    super(activatedRoute, categoriesService);
+    super(router, activatedRoute, categoriesService);
     this.initializeValidationMessagem();
   }
 
