@@ -14,6 +14,6 @@
   },
   "typescriptHero.imports.organizeOnSave": true,
   "typescriptHero.imports.organizeSortsByFirstSpecifier": true,
-  "typescriptHero.imports.multiLineWrapThreshold": 140,
+  "typescriptHero.imports.multiLineWrapThreshold": 150,
   "angular.enable-strict-mode-prompt": false
 }

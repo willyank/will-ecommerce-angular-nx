@@ -1,9 +1,12 @@
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
+import { PrimengMessageService } from '@willyan-company/generics';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 import { RequestInterceptor } from './@core/interceptors/request.interceptor';
 import { AppComponent } from './app.component';
@@ -41,6 +44,9 @@ const rountes: Routes = [
   imports: [
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
+
+    ToastModule,
 
     NgxUiLoaderModule,
 
@@ -48,6 +54,7 @@ const rountes: Routes = [
   ],
   providers: [
     MessageService,
+    PrimengMessageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptor,

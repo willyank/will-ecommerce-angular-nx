@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AbstractEditForm } from '@willyan-company/generics';
+import { AbstractEditForm, PrimengMessageService } from '@willyan-company/generics';
 import { CategoriesService, Category } from '@willyan-company/products';
 
 @Component({
@@ -16,9 +16,10 @@ export class CategoriesFormComponent
     protected categoriesService: CategoriesService,
     protected router: Router,
     protected activatedRoute: ActivatedRoute,
+    protected messageService: PrimengMessageService,
     private fb: FormBuilder
   ) {
-    super(router, activatedRoute, categoriesService);
+    super(router, activatedRoute, messageService, categoriesService);
     this.initializeValidationMessagem();
   }
 
@@ -28,8 +29,9 @@ export class CategoriesFormComponent
 
   protected initializeForm(): void {
     this.form = this.fb.group({
-      name: ['', [Validators.required]],
-      icon: ['', [Validators.required]],
+      name: [this.obj.name, [Validators.required]],
+      icon: [this.obj.icon, [Validators.required]],
+      color: [this.obj.color ?? '#fff'],
     });
   }
   protected initializeValidationMessagem(): void {

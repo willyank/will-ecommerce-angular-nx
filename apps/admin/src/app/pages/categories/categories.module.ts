@@ -5,6 +5,7 @@ import { EditServiceResolver, ListServiceResolver } from '@willyan-company/gener
 import { CategoriesService } from '@willyan-company/products';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { ColorPickerModule } from 'primeng/colorpicker';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
@@ -23,6 +24,7 @@ import { CategoriesFormComponent } from './pages/categories-form/categories-form
     ReactiveFormsModule,
 
     //primeng
+    ColorPickerModule,
     CardModule,
     ToolbarModule,
     TableModule,
