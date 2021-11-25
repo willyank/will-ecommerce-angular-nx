@@ -1,36 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { EditServiceResolver, ListServiceResolver } from '@willyan-company/generics';
+import { ListServiceResolver } from '@willyan-company/generics';
 import { CategoriesService } from '@willyan-company/products';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { ColorPickerModule } from 'primeng/colorpicker';
-import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
-import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 
 import { CategoriesListComponent } from './categories-list.component';
 import { CategoriesListRoutingModule } from './categories-routing.module';
-import { CategoriesFormComponent } from './pages/categories-form/categories-form.component';
+import { CategoriesFormModule } from './pages/categories-form/categories-form.module';
 
 @NgModule({
-  declarations: [CategoriesListComponent, CategoriesFormComponent],
+  declarations: [CategoriesListComponent],
   imports: [
     CommonModule,
     // Routing Module
     CategoriesListRoutingModule,
-    ReactiveFormsModule,
+
+    CategoriesFormModule,
 
     //primeng
-    ColorPickerModule,
     CardModule,
     ToolbarModule,
     TableModule,
     ButtonModule,
-    InputTextModule,
-    ToastModule,
   ],
   providers: [
     {
@@ -39,7 +33,6 @@ import { CategoriesFormComponent } from './pages/categories-form/categories-form
       deps: [CategoriesService],
     },
     ListServiceResolver,
-    EditServiceResolver,
   ],
 })
 export class CategoriesModule {}

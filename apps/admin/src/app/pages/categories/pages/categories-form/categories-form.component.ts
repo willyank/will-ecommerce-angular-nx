@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AbstractEditForm, PrimengMessageService } from '@willyan-company/generics';
+import { AbstractEditForm, commonMessages, PrimengMessageService } from '@willyan-company/generics';
 import { CategoriesService, Category } from '@willyan-company/products';
 
 @Component({
@@ -37,10 +37,10 @@ export class CategoriesFormComponent
   protected initializeValidationMessagem(): void {
     const validationMessages: Record<string, unknown> = {
       name: {
-        required: 'Required field',
+        required: commonMessages.inputRequired,
       },
       icon: {
-        required: 'Required field',
+        required: commonMessages.inputRequired,
       },
     };
 
