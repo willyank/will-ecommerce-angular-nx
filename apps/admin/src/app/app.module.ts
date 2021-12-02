@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PrimengMessageService } from '@willyan-company/generics';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 
 import { RequestInterceptor } from './@core/interceptors/request.interceptor';
@@ -47,6 +48,7 @@ const rountes: Routes = [
     BrowserAnimationsModule,
 
     ToastModule,
+    ConfirmDialogModule,
 
     NgxUiLoaderModule,
 
