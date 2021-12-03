@@ -33,7 +33,9 @@
             <tr>
               <td>{{ category.id }}</td>
               <td>{{ category.name }}</td>
-              <td>{{ category.icon }}</td>
+              <td>
+                <i [ngClass]="category.icon" [style.color]="category.color"></i>
+              </td>
               <td>
                 <p-button
                   (click)="delete(category.id)"
