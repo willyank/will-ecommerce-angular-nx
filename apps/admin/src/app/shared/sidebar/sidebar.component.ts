@@ -9,8 +9,6 @@ import { environment } from '@env/environment';
 export class SidebarComponent implements OnInit {
   version: string;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.version =
       'Versão: ' + environment.version + ' <br> ' + environment.versionDate;

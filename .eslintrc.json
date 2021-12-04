@@ -1,12 +1,18 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
-  "@typescript-eslint/no-this-alias": [],
+  "plugins": ["@nrwl/nx", "@typescript-eslint"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
+        "@typescript-eslint/no-this-alias": [
+          "error",
+          {
+            "allowedNames": ["that"]
+          }
+        ],
+
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
@@ -23,14 +29,14 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
-    },
-    {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "rules": { "prefer-const": 1, "eqeqeq": 1 }
     }
   ]
 }
