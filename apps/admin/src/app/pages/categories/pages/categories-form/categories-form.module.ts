@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EditFormLayoutModule, EditServiceResolver } from '@willyan-company/generics';
+import {
+  EditFormLayoutModule,
+  EditServiceResolver,
+} from '@willyan-company/generics';
 import { CategoriesService } from '@willyan-company/products';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { InputTextModule } from 'primeng/inputtext';

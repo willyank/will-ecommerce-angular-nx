@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditServiceResolver, ListServiceResolver } from '@willyan-company/generics';
+import {
+  EditServiceResolver,
+  ListServiceResolver,
+} from '@willyan-company/generics';
 
 import { CategoriesListComponent } from './categories-list.component';
 import { CategoriesFormComponent } from './pages/categories-form/categories-form.component';

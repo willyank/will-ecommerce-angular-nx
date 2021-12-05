@@ -99,7 +99,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "admin-e2e": {
       "root": "apps/admin-e2e",
@@ -125,7 +126,9 @@
             "lintFilePatterns": ["apps/admin-e2e/**/*.{js,ts}"]
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["admin"]
     },
     "generics": {
       "root": "libs/generics",
@@ -147,7 +150,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "ngstore": {
       "projectType": "application",
@@ -250,7 +254,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "ngstore-e2e": {
       "root": "apps/ngstore-e2e",
@@ -276,7 +281,9 @@
             "lintFilePatterns": ["apps/ngstore-e2e/**/*.{js,ts}"]
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["ngstore"]
     },
     "orders": {
       "root": "libs/orders",
@@ -308,7 +315,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "products": {
       "root": "libs/products",
@@ -330,7 +338,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "ui": {
       "root": "libs/ui",
@@ -352,7 +361,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "users": {
       "root": "libs/users",
@@ -384,13 +394,9 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     }
-  },
-  "cli": {
-    "analytics": "1d9f77bd-46f1-442e-9a12-71180bc0230f",
-    "defaultCollection": "@nrwl/angular",
-    "packageManager": "npm"
   },
   "schematics": {
     "@nrwl/angular": {
@@ -418,6 +424,5 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "ngstore"
+  }
 }

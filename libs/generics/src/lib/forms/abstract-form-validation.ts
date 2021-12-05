@@ -1,5 +1,15 @@
-﻿import { AfterViewInit, Component, ElementRef, ViewChildren } from '@angular/core';
-import { AbstractControl, FormControlName, FormGroup, ValidationErrors } from '@angular/forms';
+﻿import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  ViewChildren,
+} from '@angular/core';
+import {
+  AbstractControl,
+  FormControlName,
+  FormGroup,
+  ValidationErrors,
+} from '@angular/forms';
 import { fromEvent, merge, Observable, Subject } from 'rxjs';
 
 interface DisplayMessage {
