@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ListServiceResolver } from '@willyan-company/generics';
+import {
+  ListLayoutModule,
+  ListServiceResolver,
+} from '@willyan-company/generics';
 import { CategoriesService } from '@willyan-company/products';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -19,6 +22,7 @@ import { CategoriesFormModule } from './pages/categories-form/categories-form.mo
     CategoriesListRoutingModule,
 
     CategoriesFormModule,
+    ListLayoutModule,
 
     //primeng
     CardModule,
