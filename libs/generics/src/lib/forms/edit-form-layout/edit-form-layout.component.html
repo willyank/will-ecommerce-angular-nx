@@ -11,7 +11,7 @@
           styleClass="p-button-primary mr-2"
           [label]="saveButtonText"
           icon="pi pi-plus"
-          [disabled]="true"
+          [disabled]="!canSave()"
           (click)="save()"
         ></p-button>
         <p-button

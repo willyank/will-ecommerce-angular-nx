@@ -28,7 +28,9 @@ export abstract class ListAbstract<T extends BaseModel> {
       this.baseCrudService
         .getPaginated(this.paginationParams)
         .subscribe((result) => {
-          this.page = result;
+          if (result) {
+            this.page = result;
+          }
         });
     });
   }

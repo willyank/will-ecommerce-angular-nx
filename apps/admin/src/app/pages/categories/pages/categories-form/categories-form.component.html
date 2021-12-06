@@ -1,6 +1,7 @@
 <edit-form-layout
   formHeaderText="Edit Category"
   subHeaderText="Category management"
+  [form]="form"
   (handleSave)="save()"
   (handleCancel)="cancel()"
 >
@@ -31,6 +32,12 @@
           type="text"
           pInputText
         />
+        <small
+          class="p-error"
+          *ngIf="displayMessage.icon"
+          [innerHTML]="displayMessage.icon"
+        >
+        </small>
       </div>
       <div class="field col-1">
         <label for="color">Color</label><br />

@@ -31,7 +31,7 @@ export class CategoriesFormComponent
     this.form = this.fb.group({
       name: [this.obj.name, [Validators.required]],
       icon: [this.obj.icon, [Validators.required]],
-      color: [this.obj.color ?? '#fff'],
+      color: [this.obj.color ?? '#000'],
     });
   }
   protected initializeValidationMessagem(): void {
