@@ -3,8 +3,11 @@ import { environment } from '@env/environment';
 import { Observable } from 'rxjs';
 
 import { BaseModel } from '../models/base.model';
+import { Pagination } from '../models/pagination.model';
+import { PaginationParams } from '../models/pagination.params.model';
 
 export abstract class BaseCrudService<T extends BaseModel> {
+  static PAGE_SIZE = 50;
   protected apiURL = environment.adminApiUrl + 'v1/';
 
   constructor(protected http: HttpClient) {}
@@ -13,7 +16,16 @@ export abstract class BaseCrudService<T extends BaseModel> {
 
   getAll(): Observable<T[]> {
     return this.http.get<T[]>(`${this.apiURL + this.getBaseUrl()}/all`);
-    //return of([{ id: 'abc-123', name: 'from service', icon: 'icon-test' }]);
+  }
+
+  getPaginated(queryParam: PaginationParams): Observable<Pagination<T>> {
+    const query = `page=${queryParam.page ?? 0}&rowsPage=${
+      queryParam.rowsPage ?? BaseCrudService.PAGE_SIZE
+    }&columnOrder=${queryParam.columnOrder ?? ''}`;
+
+    return this.http.get<Pagination<T>>(
+      `${this.apiURL + this.getBaseUrl()}/paginated?${query}`
+    );
   }
 
   get(id: unknown): Observable<T> {

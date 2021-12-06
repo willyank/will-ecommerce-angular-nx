@@ -1,14 +1,20 @@
 import { ActivatedRoute, Router } from '@angular/router';
+import { LazyLoadEvent } from 'primeng/api/lazyloadevent';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import Swal, { SweetAlertResult } from 'sweetalert2';
 
 import { BaseModel } from '../models/base.model';
+import { PaginationEvent } from '../models/pagination.event.model';
+import { Pagination } from '../models/pagination.model';
+import { PaginationParams } from '../models/pagination.params.model';
 import { BaseCrudService } from '../services/base-crud.service';
 import { PrimengMessageService } from '../services/primeng-messages.service';
 
 export abstract class ListAbstract<T extends BaseModel> {
-  items: T[];
+  page: Pagination<T> = { total: 0, items: [] };
+  rowsPerPage = 50;
+  paginationParams: PaginationParams;
 
   constructor(
     protected baseCrudService: BaseCrudService<T>,
@@ -16,7 +22,15 @@ export abstract class ListAbstract<T extends BaseModel> {
     protected activatedRoute: ActivatedRoute,
     protected messageService: PrimengMessageService
   ) {
-    this.items = this.activatedRoute.snapshot.data.list;
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.paginationParams = params as PaginationParams;
+
+      this.baseCrudService
+        .getPaginated(this.paginationParams)
+        .subscribe((result) => {
+          this.page = result;
+        });
+    });
   }
 
   delete(id: unknown): void {
@@ -52,10 +66,37 @@ export abstract class ListAbstract<T extends BaseModel> {
   getAll(): Observable<T[]> {
     return this.baseCrudService.getAll().pipe(
       tap((result) => {
-        this.items = result;
+        this.page = {
+          items: result,
+          total: result.length,
+        };
         return result;
       })
     );
+  }
+
+  pageChange(event: PaginationEvent): void {
+    const param: PaginationParams = {
+      page: event.first / event.rows,
+      rowsPage: event.rows,
+    };
+    this.router.navigate([window.location.pathname], {
+      queryParams: param,
+    });
+  }
+
+  sorTable(event: LazyLoadEvent): void {
+    if (!event.sortField) {
+      return;
+    }
+
+    this.router.navigate([window.location.pathname], {
+      queryParams: {
+        ...this.paginationParams,
+        columnOrder: event.sortField,
+      },
+    });
+    console.log(event);
   }
 
   new(): void {
