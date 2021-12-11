@@ -1,6 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AbstractEditForm, commonMessages, PrimengMessageService } from '@willyan-company/generics';
 import { CategoriesService, Category } from '@willyan-company/products';
 
@@ -14,12 +15,12 @@ export class CategoriesFormComponent
 {
   constructor(
     protected categoriesService: CategoriesService,
-    protected router: Router,
+    protected location: Location,
     protected activatedRoute: ActivatedRoute,
     protected messageService: PrimengMessageService,
     private fb: FormBuilder
   ) {
-    super(router, activatedRoute, messageService, categoriesService);
+    super(location, activatedRoute, messageService, categoriesService);
     this.initializeValidationMessagem();
   }
 

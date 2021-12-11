@@ -7,7 +7,7 @@ import { Pagination } from '../models/pagination.model';
 import { PaginationParams } from '../models/pagination.params.model';
 
 export abstract class BaseCrudService<T extends BaseModel> {
-  static PAGE_SIZE = 50;
+  static PAGE_SIZE = 3;
   protected apiURL = environment.adminApiUrl + 'v1/';
 
   constructor(protected http: HttpClient) {}

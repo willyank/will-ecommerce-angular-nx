@@ -13,7 +13,7 @@ import { PrimengMessageService } from '../services/primeng-messages.service';
 
 export abstract class ListAbstract<T extends BaseModel> {
   page: Pagination<T> = { total: 0, items: [] };
-  rowsPerPage = 50;
+  rowsPerPage = BaseCrudService.PAGE_SIZE;
   paginationParams: PaginationParams;
 
   constructor(
@@ -79,6 +79,7 @@ export abstract class ListAbstract<T extends BaseModel> {
 
   pageChange(event: PaginationEvent): void {
     const param: PaginationParams = {
+      ...this.paginationParams,
       page: event.first / event.rows,
       rowsPage: event.rows,
     };
@@ -98,7 +99,6 @@ export abstract class ListAbstract<T extends BaseModel> {
         columnOrder: event.sortField,
       },
     });
-    console.log(event);
   }
 
   new(): void {

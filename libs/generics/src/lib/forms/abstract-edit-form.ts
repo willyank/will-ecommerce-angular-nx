@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { BaseModel } from '../models/base.model';
 import { BaseCrudService } from '../services/base-crud.service';
@@ -15,7 +16,7 @@ export abstract class AbstractEditForm<
   obj: T;
 
   constructor(
-    protected router: Router,
+    protected location: Location,
     protected activatedRoute: ActivatedRoute,
     protected messageService: PrimengMessageService,
     protected baseCrudService: BaseCrudService<T>
@@ -55,7 +56,6 @@ export abstract class AbstractEditForm<
   }
 
   cancel(): void {
-    const route = this.obj.id ? '../../' : '../';
-    this.router.navigate([route], { relativeTo: this.activatedRoute });
+    this.location.back();
   }
 }
