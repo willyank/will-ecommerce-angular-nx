@@ -19,12 +19,17 @@ export abstract class BaseCrudService<T extends BaseModel> {
   }
 
   getPaginated(queryParam: PaginationParams): Observable<Pagination<T>> {
-    const query = `page=${queryParam.page ?? 0}&rowsPage=${
-      queryParam.rowsPage ?? BaseCrudService.PAGE_SIZE
-    }&columnOrder=${queryParam.columnOrder ?? ''}`;
+    const params = [];
+
+    for (const k in queryParam) {
+      const value = queryParam[k as keyof PaginationParams];
+      if (value !== null && value !== undefined) {
+        params.push(`${k}=${value}`);
+      }
+    }
 
     return this.http.get<Pagination<T>>(
-      `${this.apiURL + this.getBaseUrl()}/paginated?${query}`
+      `${this.apiURL + this.getBaseUrl()}/paginated?${params.join('&')}`
     );
   }
 

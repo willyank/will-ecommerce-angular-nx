@@ -97,6 +97,7 @@ export abstract class ListAbstract<T extends BaseModel> {
       queryParams: {
         ...this.paginationParams,
         columnOrder: event.sortField,
+        descending: event.sortOrder === 1 ? true : false,
       },
     });
   }
