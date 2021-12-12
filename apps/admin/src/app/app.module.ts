@@ -43,9 +43,9 @@ const rountes: Routes = [
     SidebarComponent,
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     ToastModule,
     ConfirmDialogModule,

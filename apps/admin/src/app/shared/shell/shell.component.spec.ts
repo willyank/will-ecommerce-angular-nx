@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
+import { SidebarComponent } from '../sidebar/sidebar.component';
 import { ShellComponent } from './shell.component';
 
 describe('ShellComponent', () => {
@@ -8,7 +10,8 @@ describe('ShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ShellComponent],
+      imports: [RouterTestingModule],
+      declarations: [ShellComponent, SidebarComponent],
     }).compileComponents();
   });
 
