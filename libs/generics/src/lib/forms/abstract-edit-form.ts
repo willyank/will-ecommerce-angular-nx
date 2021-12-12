@@ -50,6 +50,15 @@ export abstract class AbstractEditForm<
         this.messageService.error(
           `${this.obj.id ? 'Edition' : 'Creation'} failed!`
         );
+
+        const errors = err.error?.errors;
+        if (errors) {
+          for (const key in errors) {
+            const errorMsg = errors[key].join('\r\n');
+
+            this.messageService.error(errorMsg, 15000);
+          }
+        }
         console.error(err);
       },
     });

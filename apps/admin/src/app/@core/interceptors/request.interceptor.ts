@@ -1,13 +1,7 @@
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest,
-  HttpResponse,
-} from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 @Injectable()
@@ -30,7 +24,7 @@ export class RequestInterceptor implements HttpInterceptor {
         console.log(err);
         this.ngxService.stop();
 
-        return throwError(() => err);
+        throw err;
       })
     );
   }

@@ -29,12 +29,13 @@ export class PrimengMessageService {
     });
   }
 
-  error(message: string): void {
+  error(message: string, milliSeconds: number | null = null): void {
     this.add({
       ...this.message,
       severity: 'error',
       summary: 'Error',
       detail: message,
+      life: milliSeconds ?? this.message.life,
     });
   }
 }
