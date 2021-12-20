@@ -11,6 +11,8 @@ import { ToastModule } from 'primeng/toast';
 
 import { RequestInterceptor } from './@core/interceptors/request.interceptor';
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from './pages/404/not-found-component';
+import { NotFoundModule } from './pages/404/not-found-module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ShellComponent } from './shared/shell/shell.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
@@ -33,6 +35,12 @@ const rountes: Routes = [
       },
     ],
   },
+  {
+    path: '404',
+    component: NotFoundComponent,
+  },
+  // Handle all other routes
+  { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
@@ -51,6 +59,8 @@ const rountes: Routes = [
     ConfirmDialogModule,
 
     NgxUiLoaderModule,
+
+    NotFoundModule,
 
     RouterModule.forRoot(rountes, { initialNavigation: 'enabledBlocking' }),
   ],
