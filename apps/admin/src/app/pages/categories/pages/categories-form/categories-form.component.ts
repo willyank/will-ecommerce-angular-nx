@@ -30,7 +30,7 @@ export class CategoriesFormComponent
 
   protected initializeForm(): void {
     this.form = this.fb.group({
-      name: [this.obj.name, [Validators.required]],
+      name: [this.obj.name, [Validators.required, Validators.minLength(3)]],
       icon: [this.obj.icon, [Validators.required]],
       color: [this.obj.color ?? '#000'],
     });
@@ -39,6 +39,7 @@ export class CategoriesFormComponent
     const validationMessages: Record<string, unknown> = {
       name: {
         required: commonMessages.inputRequired,
+        minLength: commonMessages.minLength,
       },
       icon: {
         required: commonMessages.inputRequired,

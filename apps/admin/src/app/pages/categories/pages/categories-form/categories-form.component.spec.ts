@@ -37,4 +37,21 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('form can not save', () => {
+    expect(component.form.invalid).toBeTruthy();
+  });
+
+  it('name input tests', () => {
+    const nameControl = component.form.controls.name;
+    nameControl.markAsTouched();
+
+    expect(nameControl.invalid).toBeTruthy();
+
+    nameControl.patchValue('12');
+    expect(nameControl.invalid).toBeTruthy();
+
+    nameControl.patchValue('above minlength of 3');
+    expect(nameControl.valid).toBeTruthy();
+  });
 });
